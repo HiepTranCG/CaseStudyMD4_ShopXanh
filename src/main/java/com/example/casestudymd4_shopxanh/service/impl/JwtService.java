@@ -1,6 +1,5 @@
 package com.example.casestudymd4_shopxanh.service.impl;
 
-import com.example.casestudymd4_shopxanh.model.UserPrinciple;
 import io.jsonwebtoken.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

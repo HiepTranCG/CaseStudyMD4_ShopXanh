@@ -8,7 +8,7 @@ import java.io.Serializable;
 import java.util.Set;
 
 @Entity
-@Table(name = "userTable")
+@Table(name = "user")
 public class User implements Serializable {
     private static final long serialVersionUID = 1L;
 
@@ -34,18 +34,15 @@ public class User implements Serializable {
     private String phone;
     private boolean enabled = true;
 
-    @ManyToMany(fetch = FetchType.EAGER)
-    @JoinTable(name = "user_role",
-            joinColumns = {@JoinColumn(name = "user_id")},
-            inverseJoinColumns = {@JoinColumn(name = "role_id")})
-    private Set<Role> roles;
+    @OneToOne
+    private Role role;
 
-    public User(String username, String password,String phone ,String confirmPassword, Set<Role> roles) {
+    public User(String username, String password,String phone ,String confirmPassword, Role role) {
         this.username = username;
         this.password = password;
         this.confirmPassword = confirmPassword;
-        this.roles = roles;
         this.phone = phone;
+        this.role = role;
     }
 
     public User() {
@@ -87,12 +84,12 @@ public class User implements Serializable {
         this.confirmPassword = confirmPassword;
     }
 
-    public Set<Role> getRoles() {
-        return roles;
+    public String getPhone() {
+        return phone;
     }
 
-    public void setRoles(Set<Role> roles) {
-        this.roles = roles;
+    public void setPhone(String phone) {
+        this.phone = phone;
     }
 
     public boolean isEnabled() {
@@ -103,11 +100,11 @@ public class User implements Serializable {
         this.enabled = enabled;
     }
 
-    public String getPhone() {
-        return phone;
+    public Role getRole() {
+        return role;
     }
 
-    public void setPhone(String phone) {
-        this.phone = phone;
+    public void setRole(Role role) {
+        this.role = role;
     }
 }
