@@ -2,14 +2,10 @@ package com.example.casestudymd4_shopxanh.model;
 
 import lombok.Data;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity
-@Data
 public class Role implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
