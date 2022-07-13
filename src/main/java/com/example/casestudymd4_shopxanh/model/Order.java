@@ -1,7 +1,10 @@
 package com.example.casestudymd4_shopxanh.model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import javax.persistence.*;
 import java.io.Serializable;
+import java.time.LocalDateTime;
 import java.util.Date;
 
 @Entity
@@ -13,22 +16,23 @@ public class Order implements Serializable {
     private Long id;
     @ManyToOne
     private User user;
-    private Date createAt;
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    private LocalDateTime creatAt;
     private Double money;
 
     private int status;
 
-    public Order(User user, Date createAt, Double money, int status) {
+    public Order(User user, LocalDateTime creatAt, Double money, int status) {
         this.user = user;
-        this.createAt = createAt;
+        this.creatAt = creatAt;
         this.money = money;
         this.status = status;
     }
 
-    public Order(Long id, User user, Date createAt, Double money, int status) {
+    public Order(Long id, User user, LocalDateTime creatAt, Double money, int status) {
         this.id = id;
         this.user = user;
-        this.createAt = createAt;
+        this.creatAt = creatAt;
         this.money = money;
         this.status = status;
     }
@@ -52,12 +56,12 @@ public class Order implements Serializable {
         this.user = user;
     }
 
-    public Date getCreateAt() {
-        return createAt;
+    public LocalDateTime getCreatAt() {
+        return creatAt;
     }
 
-    public void setCreateAt(Date createAt) {
-        this.createAt = createAt;
+    public void setCreatAt(LocalDateTime creatAt) {
+        this.creatAt = creatAt;
     }
 
     public Double getMoney() {

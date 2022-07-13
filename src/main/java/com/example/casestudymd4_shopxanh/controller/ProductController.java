@@ -1,8 +1,6 @@
 package com.example.casestudymd4_shopxanh.controller;
 
 import com.example.casestudymd4_shopxanh.model.Product;
-import com.example.casestudymd4_shopxanh.service.CategoryService;
-import com.example.casestudymd4_shopxanh.service.ProductService;
 import com.example.casestudymd4_shopxanh.service.impl.CategoryServiceImpl;
 import com.example.casestudymd4_shopxanh.service.impl.ProductServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
